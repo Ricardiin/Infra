@@ -1,0 +1,302 @@
+modo enable para subir de Nivel =ROOT
+
+Enable entra no modo primario como root
+
+Disable sai do modo root.
+
+exit sai de tudo.
+
+enable
+ end serve para travar por 60 segundos..
+   ctrl shif 6 sai do modo END.
+_
+
+ configure terminal
+__________
+
+MODO Exec = ENABLE
+____________
+NO desabilita .. ex: no cdp run
+
+clock;....
+
+COMANDOS UTILIZADOS
+
+sw-01>enable
+sw-01#end
+Translating "end"...domain server (255.255.255.255) % Name lookup aborted
+sw-01#clock?
+clock  
+sw-01#clock ?
+  set  Set the time and date
+sw-01#clock clock
+sw-01#clock clock 
+sw-01#clock
+sw-01#clock 
+sw-01#clock set ?
+  hh:mm:ss  Current Time
+sw-01#clock set 
+% Incomplete command.
+sw-01#clock set 14:35:00 ?
+  <1-31>  Day of the month
+  MONTH   Month of the year
+sw-01#clock set 14:35:00 28 ?
+  MONTH  Month of the year
+sw-01#clock set 14:35:00 28 April
+% Incomplete command.
+sw-01#clock set 14:35:00 28 April ?
+  <1993-2035>  Year
+sw-01#clock set 14:35:00 28 April 2025
+sw-01#clock sit
+
+______________________________________________________________________
+ ...
+!Criar usuários e senhas
+        username senac secret 123@senac
+        username richard password 123@senac
+        username admin privilege 15 secret 123@Senac
+
+....
+        copy running-config startup-config
+
+serve para gravar salvar as configuraçoes de usuario
+__________________________________________________
+
+
+sw-01 con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+AVISO: Acesso autorizado somente a funcionarios
+
+sw-01>enable
+Password: 
+sw-01#con
+sw-01#conf
+sw-01#configure term
+sw-01#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+sw-01(config)#
+sw-01(config)#
+sw-01(config)#
+sw-01(config)#no cd
+sw-01(config)#no cdp ru
+sw-01(config)#no
+sw-01(config)#no cd
+sw-01(config)#no cdp ru
+sw-01(config)#no cdp run 
+sw-01(config)#
+sw-01(config)#no ll
+sw-01(config)#no lldp ru
+sw-01(config)#no lldp run 
+sw-01(config)#
+sw-01(config)#
+sw-01(config)#in
+sw-01(config)#in?
+interface  
+sw-01(config)#lin
+sw-01(config)#line ?
+  <0-16>   First Line number
+  console  Primary terminal line
+  vty      Virtual terminal
+sw-01(config)#line console?
+console  
+sw-01(config)#line console ?
+  <0-0>  First Line number
+sw-01(config)#line console 0
+sw-01(config-line)#
+sw-01(config-line)#
+sw-01(config-line)#
+sw-01(config-line)#logi
+sw-01(config-line)#login loca
+sw-01(config-line)#login local 
+sw-01(config-line)#
+sw-01(config-line)#
+sw-01(config-line)#pass
+sw-01(config-line)#password 123@Senac
+sw-01(config-line)#
+sw-01(config-line)#
+sw-01(config-line)#logg
+sw-01(config-line)#logging syncr
+sw-01(config-line)#logging syncro
+sw-01(config-line)#logging synchr
+sw-01(config-line)#logging synchronous 
+sw-01(config-line)#
+sw-01(config-line)#
+sw-01(config-line)#exec-t
+sw-01(config-line)#exec-timeout 5 30
+sw-01(config-line)#
+sw-01(config-line)#end
+sw-01#
+*Apr 28, 16:31:32.3131: SYS-5-CONFIG_I: Configured from console by console
+sw-01#cop
+sw-01#copy runn
+sw-01#copy running-config star
+sw-01#copy running-config startup-config 
+Destination filename [startup-config]? 
+Building configuration...
+[OK]
+sw-01#
+sw-01#exit
+
+
+
+
+
+
+
+
+
+sw-01 con0 is now available
+
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+
+
+
+
+
+AVISO: Acesso autorizado somente a funcionarios
+
+User Access Verification
+
+Username: local
+Password: 
+% Login invalid
+
+Username: senac
+Password: 
+% Login invalid
+
+Username: senac
+Password: 
+% Login invalid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Press RETURN to get started!
+
+AVISO: Acesso autorizado somente a funcionarios
+
+User Access Verification
+
+Username: enable
+Password: 
+% Login invalid
+
+Username: exit
+Password: 
+% Login invalid
+
+Username: admin
+Password: 
+% Login invalid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Press RETURN to get started!
+
+AVISO: Acesso autorizado somente a funcionarios
+
+User Access Verification
+
+Username: 
+Username: admin
+Password: 
+% Login invalid
+
+Username: richard
+Password: 
+% Login invalid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Press RETURN to get started!
+
+AVISO: Acesso autorizado somente a funcionarios
+
+User Access Verification
+
+.... FAZER O SW-02 e liga rno console pc 3
+
+..______________________________________
+sw-02>enable
+sw-02#clock set 
+% Incomplete command.
+sw-02#clock set 17:00:00
+% Incomplete command.
+sw-02#clock set 17:00:00 28 April 2025
+sw-02#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+sw-02(config)#hostname sw-02
+sw-02(config)#service password-encryption
+sw-02(config)#service timestamps log datetime msec
+sw-02(config)#
+
