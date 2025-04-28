@@ -1,10 +1,10 @@
 enable
     !Configuração de Data e Hora
-    clock set 14:35:00 28 April 2025
+    clock set 17:00:00 28 April 2025
     !Modo de configuração Global
     configure terminal
         !Nome do Switch
-        hostname sw-01
+        hostname sw-02
         !Segurança de senhas
         service password-encryption
         !Marcação de Data e Hora nos Logs
@@ -45,4 +45,4 @@ enable
         copy running-config startup-config
         -----------------------------------
         !Visualizar as configuraçoes
-        
+        show running-config
