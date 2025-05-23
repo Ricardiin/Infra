@@ -1,0 +1,64 @@
+!Modo enable
+enable
+    !Conf
+    configure terminal
+        !dando o nome para o roteador
+        hostname SP
+        exit
+    !conf
+    configure terminal
+    !entrando no fastethernet
+    interface fastethernet 0/0
+    ip address 192.168.10.1 255.255.255.0
+    no shutdown
+    description Porta LAN de SP
+    !conf
+    configure terminal
+    !entrando no serial
+    interface serial 0/0
+    ip address 10.0.0.1 255.0.0.0
+    no shutdown
+    bandwidth 128
+    clock rate 128000
+    description Porta WAN de SP
+    !conf
+    configure terminal
+    network 10.0.0.0
+    network 192.168.10.0
+    ------------
+    Router>
+Router>ena
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#host
+Router(config)#hostname RJ
+RJ(config)#int
+RJ(config)#interface f
+RJ(config)#interface fastEthernet 0/1
+RJ(config-if)#ip add
+RJ(config-if)#ip address 192.168.20.1 255.255.255.0
+RJ(config-if)#ip address 192.168.20.1 255.255.255.1
+Bad mask 0xFFFFFF01 for address 192.168.20.1
+RJ(config-if)#ip address 192.168.20.1 255.255.255.0
+RJ(config-if)#no shu
+RJ(config-if)#no shutdown 
+RJ(config-if)#ban
+RJ(config-if)#bandwidth 128
+RJ(config-if)#exit
+RJ(config)#rou
+RJ(config)#router rip
+RJ(config-router)#net
+RJ(config-router)#network 192.168.20.0 (sempre com 0)
+RJ(config-router)#net 10.0.0.0 (sempre o anterior e o router atual)
+RJ(config-router)#^Z
+RJ#
+--------------
+!Porta serial do CE para AC
+ip address 17.0.0.2 255.0.0.0
+no shutdown
+!Router rip
+router rip
+networkd 17.0.0.0
+network 192.168.80.0
+---
+!QUando tem varias portas exemplo a 1/4 pra 0/0 tem q colocar as duas e as duas tem q aparecer UP 
