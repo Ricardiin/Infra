@@ -1,0 +1,41 @@
+A>10.26.40.12
+Classe: A
+Mascara:255.0.0.0
+Endereço de Rede:10.0.0.0
+Broadcast:10.255.255.255
+
+
+B>200.100.10.2
+Classe:C
+Mascara:255.255.255.0
+Endereço:200.100.10.0
+Broadcast:200.100.10.255
+
+C>130.44.55.6
+Classe:B
+Mascara:255.255.0.0
+Endereço:130.44.0.0
+Broadcast:130.44.255.255
+
+D>180.254.255.254
+Classe:B
+Mascara:255.255.0.0
+Endereço:180.254.0.0
+Broadcast:180.254.255.255
+
+E>90.0.0.2
+Classe:A
+Mascara:255.0.0.0
+Endereço:90.0.0.0
+Broadcast:90.255.255.255
+
+F>222.22.2.2
+Classe:C
+Mascara:255.255.255.0
+Endereço:222.22.2.0
+Broadcast:222.22.2.255
+
+______
+
+Qual ip não é Valido.
+127.0.0.1 ip invalido pq é Um ip de loopback
