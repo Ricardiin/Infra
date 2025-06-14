@@ -40,7 +40,7 @@ enable
       !Configuração do endereçamento IP Interface Serial DTE
       !Verificar a tabela de endereçamento IPv4 dos Grupos
       !Sempre vai ser o Endereço IPv4 PAR na Interface Serial 0/0/1
-      ip address 192.168.1.13 255.255.255.252
+      ip address 192.168.1.10 255.255.255.252
 
       !Configurando a Largura de Banda (Dividir o Clock Rate por 1000 para achar o valor em Mbps)
       bandwidth 2000
