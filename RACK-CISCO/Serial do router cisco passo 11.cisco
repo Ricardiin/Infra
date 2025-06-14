@@ -10,7 +10,7 @@ enable
       !Descrição da Interface Serial DCE
       !OBSERVAÇÃO IMPORTANTE: veja o arquivo 00-DocumentacaoDaRede.txt a partir da linha: 232
       !(SÉTIMA ETAPA: Determinação da Interface Serial de WAN dos Grupos e seu Endereçamento IPv4)
-      description Interface Serial do Grupo-04 para Grupo-03
+      description Interface Serial do Grupo-03 para Grupo-04
 
       !Configuração do endereçamento IPv4 da Interface Serial DCE
       !Verificar a tabela de endereçamento IPv4 dos Grupos
@@ -35,7 +35,7 @@ enable
       !Descrição da Interface Serial DTE
       !OBSERVAÇÃO IMPORTANTE: veja o arquivo 00-DocumentacaoDaRede.txt a partir da linha: 232
       !(SÉTIMA ETAPA: Determinação da Interface Serial de WAN dos Grupos e seu Endereçamento IPv4)
-      description Interface Serial do Grupo-3 para Grupo-4
+      description Interface Serial do Grupo-4 para Grupo-3
 
       !Configuração do endereçamento IP Interface Serial DTE
       !Verificar a tabela de endereçamento IPv4 dos Grupos
