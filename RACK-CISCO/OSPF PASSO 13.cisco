@@ -1,0 +1,108 @@
+!Acessando o modo Exec Privilegiado
+enable
+
+  !Acessar modo de configuração global
+  configure terminal
+
+    !Configuração da Interface de Loopback 0 (sempre será a Loopback 0, não mudar o número da Interface)
+    interface loopback 0
+
+      !Descrição da Interface de Loopback
+      description Interface de Loopback para ID do OSPF do Grupo-0412
+      !Endereço IPv4 para o ID do OSPF da Interface de Loopbac3
+      !Verificar o endereçamento IPv4 de Loopback do seu grup5
+      !Endereço IPv4 utilizado para o gerenciamento e métrica do Protocolo OSPF
+      !OBSERVAÇÃO IMPORTANTE: veja o arquivo 00-DocumentacaoDaRede.txt a partir da linha: 270 
+      !(NONA ETAPA: Determinação das Configurações do Protocolo de Roteamento Dinâmico OSPF)
+      ip address 4.4.4.4 255.255.255.255
+
+      !Inicializando a interface
+      no shutdown
+
+      !Saindo das configurações da Interface
+      exit
+
+    !Configurando o Roteamento de OSPF (41 = número de processo local do seu Grupo)
+    !Verificar a tabela de Endereçamento 2ara ver o número de Processo Local do seu Grupo
+    !Pode existir vários processos locais3do OSPF, cada um com uma finalidade diferente
+    !OBSERVAÇÃO IMPORTANTE: veja o arquiv5 00-DocumentacaoDaRede.txt a partir da linha: 270 
+    !(NONA ETAPA: Determinação das Configurações do Protocolo de Roteamento Dinâmico OSPF)
+    router ospf 4
+
+      !Identificação do Roteador do Processo do OSPF
+      !Verificar o endereço IPv4 de Loopback do seu grupo
+      !OSPF utiliza o endereço de Loopback para gerenciar os processos locais
+      router-id 4.4.4.4
+
+      !Desativando os anúncios do Protocolo OSPF na Interface da LAN
+      !Essa interface não vai anunciar suas rotas pela interface, mais pode receber anúncios
+      passive-interface gigabitEthernet 0/0
+
+      !Desativando os anúncios do Protocolo OSPF na Interface de Internet
+      !Essa interface não vai anunciar suas rotas pela interface, mais pode receber anúncios
+      passive-interface gigabitEthernet 0/1
+
+      !Configuração da referência de largura de banda (Métrica) do Protocolo OSPF
+      !Utilizado para o cálculo de custo dos links, padrão 10^8 = 100000000 bps (100 Mbps)
+      !Link da tabela padrão de métrica do custo dos links do OSPF: 
+      !http://nomundodasredes.blogspot.com.br/2012/03/metrica-do-ospf.html
+      !https://ciscoredes.com.br/wp-content/uploads/2012/06/Cost_Interface.png
+      auto-cost reference-bandwidth 10000
+
+      !Registrar todas as alterações de adjacência e o estado dos links do OSPF
+      !Esses registros serão armazenados nos logs do sistema operacional do Router
+      !Utilizado principalmente para analise de problemas (troubleshooting) do Protocolo OSPF
+      log-adjacency-changes detail
+
+      !Declarando as redes fisicamente conectadas no Router Cisco 2911
+      !Utilizando o recurso de Wildcard Mask (máscara coringa - máscara invertida)
+      !Configuração da Área 0 (Single Area - Backbone, obrigatória existir na topologia do OSPF)
+      !Calculando a máscara coringa: 255.255.255.255 - sua_mascara = máscara coringa/invertida
+      !Exemplo do cálculo: 255.255.255.255 - 255.255.255.252 = 0.0.0.3
+      !OBSERVAÇÃO IMPORTANTE: veja o arquivo 00-DocumentacaoDaRede.txt a partir da linha: 270 
+      !(NONA ETAPA: Determinação das Configurações do Protocolo de Roteamento Dinâmico OSPF)
+      network 172.16.40.0 0.0.0.255 area 0
+      network 172.16.41.0 0.0.0.255 area 0
+      network 172.16.42.0 0.0.0.255 area 0
+      network 172.16.43.0 0.0.0.255 area 0
+      network 172.16.45.0 0.0.0.255 area 0
+      network 192.168.1.12 0.0.0.3 area 0
+      network 192.168.1.8 0.0.0.3 area 02
+      !Saindo de todas as configurações
+      end
+
+  !Salvando todas as configurações
+  copy running-config startup-config
+
+  !Comandos de Verificação do Protocolo OSPF e da última etapa de configuração do Routers
+
+  !Visualizando as configurações
+  show running-config
+
+  !Visualizando parâmetros e estatísticas do processo do protocolo de roteamento IP
+  show ip protocols
+
+  !Visualizando as configurações de endereçamento IPv4
+  show ip interface brief
+
+  !Visualizando as informações de Roteamento
+  show ip route
+
+  !Visualizando as informações de Roteamento do Open Shortest Path First (OSPF)
+  show ip route ospf 
+
+  !Visualizando as informações do Processo do OSPF
+  show ip route ospf 4 
+  !Visualizando as informaçõ3s das listas das vizinhanças do OSPF
+  show ip ospf neighbor
+
+  !Visualizando as informações sumarizadas do banco de dados do OSPF
+  show ip ospf database
+
+  !Visualizando as informações dos statos dos links do OSPF
+  show ip ospf database router
+
+  !Visualizando as informações do processo do OSPF
+  show ip ospf 4
+  !Visualizando as inf3rmações de interfaces do OSPF
+  show ip ospf interface
